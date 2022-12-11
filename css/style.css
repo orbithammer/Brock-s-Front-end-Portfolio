@@ -228,7 +228,6 @@ footer i {
 
 /* media queries */
 
-
 @media (min-width: 1284px), screen and (orientation:landscape) {
     html,
     body {
@@ -243,7 +242,7 @@ footer i {
     }
 
     .content-feed {
-        padding: .8rem 1rem 1.67rem;
+        padding: .8rem 0 1.67rem;
     }
   
     .about-me-header-wrapper {
@@ -282,5 +281,11 @@ footer i {
     .recent-posts-wrapper {
         padding: 1rem 3.125rem 0;
         margin: 3.1rem auto 0;
+    }
+}
+
+@media screen and (orientation:landscape) {
+    .content {
+        padding: 2rem;
     }
 }
