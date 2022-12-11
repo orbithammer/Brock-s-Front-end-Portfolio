@@ -126,6 +126,7 @@ ul {
     margin: 1.6875em auto 2.6875em;
     border: none;
     background: none;
+    font-size: inherit;
     font-family: inherit;
     font-weight: 700;
     cursor: pointer;
@@ -284,6 +285,6 @@ footer i {
 
 @media screen and (orientation:landscape) {
     .content {
-        padding: 0 2.5rem;
+        padding: 0 3rem;
     }
 }
