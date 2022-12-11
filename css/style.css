@@ -127,13 +127,17 @@ ul {
     outline: 0;
 }
 
-.view-more-btn:active, .view-more-btn:focus {
+.view-more-btn:active, 
+.view-more-btn:focus,
+nav li:active,
+nav li:focus {
     outline: 0;
     border: none;
     -moz-outline-style: none;
 }
 
-.view-more-btn:active {
+.view-more-btn:active,
+nav li:active {
     transform: scale(.9);
     color: #999;
 }
