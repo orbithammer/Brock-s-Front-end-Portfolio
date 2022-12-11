@@ -126,7 +126,7 @@ ul {
     margin: 1.6875em auto 2.6875em;
     border: none;
     background: none;
-    font-size: inherit;
+    font-size: 1rem;
     font-family: inherit;
     font-weight: 700;
     cursor: pointer;
