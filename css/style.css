@@ -9,6 +9,7 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     background-color: whitesmoke;
     color: #090909;
+    font-size: 32px;
 }
 
 /* typeography */
@@ -229,6 +230,11 @@ footer i {
 
 
 @media (min-width: 1284px) {
+    html,
+    body {
+        font-size: 16px;
+    }
+    
     .content-feed,
     .recent-posts {
         display: grid;
