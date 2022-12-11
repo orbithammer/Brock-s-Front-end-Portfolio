@@ -286,6 +286,6 @@ footer i {
 
 @media screen and (orientation:landscape) {
     .content {
-        padding: 2rem;
+        padding: 0 2.5rem;
     }
 }
