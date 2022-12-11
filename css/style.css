@@ -119,7 +119,6 @@ ul {
 .article-lead-in {
     font-size: 1rem;
     line-height: 125%;
-    /* background: red; */
 }
 
 .view-more-btn {
@@ -262,7 +261,6 @@ footer i {
     
     .clicked-article-content {
         margin: 0.9375rem 6rem 0;
-        /* border: 1px solid tomato; */
     }
 
     .clicked-article,
