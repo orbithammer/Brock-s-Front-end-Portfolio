@@ -223,7 +223,8 @@ footer i {
 
 /* media queries */
 
-@media (min-width: 415px) {
+
+@media (min-width: 1284px) {
     .content-feed,
     .recent-posts {
         display: grid;
