@@ -243,7 +243,7 @@ footer i {
     }
 
     .content-feed {
-        padding: .8rem 0 1.67rem;
+        padding: .8rem 1rem 1.67rem;
     }
   
     .about-me-header-wrapper {
@@ -271,7 +271,7 @@ footer i {
     .content,
     .hero-wrapper
      {
-        max-width: 1300px;
+        max-width: 1500px;
     }
 
     .content {
