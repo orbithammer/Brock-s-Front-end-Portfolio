@@ -222,15 +222,25 @@ footer i {
     .about-me-header-wrapper {
         display: flex;
         align-items: center;
+        justify-content: flex-start;
         margin: 0 3.3125rem;
     }
     
     .about-me-wrapper {
         margin: 0 6rem;
     }
+
+    .portrait {
+        margin: 5rem 0 1.625rem 3.3125rem;
+    }
     
     .clicked-article-content {
         margin: 0.9375rem 6rem 0;
         /* border: 1px solid tomato; */
+    }
+
+    .clicked-article,
+    .recent-posts-wrapper {
+        padding: 1rem 3.125rem 0;
     }
 }

@@ -91,12 +91,12 @@ function getFeed(){
             } 
         }
     })
-    // console.log(`contentArray.length`, contentArray.length)
-    // console.log(`feedRange`, feedRange)
-    if(feedRange < (contentArray.length - 1)) {
+    if(feedRange < (contentArray.length)) {
         viewMoreBtnWrapper.innerHTML = `
         <button class="view-more-btn" data-viewMore="viewMore">View More</button>
         `
+    } else {
+        viewMoreBtnWrapper.innerHTML = ``
     }
     return feedHtml
 }
