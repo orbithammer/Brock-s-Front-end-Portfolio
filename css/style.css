@@ -80,6 +80,10 @@ ul {
     padding: .8rem 1.25rem 1.67rem;
 }
 
+.hero-wrapper {
+    padding: 0 1rem;
+}
+
 .hero {
     background-color: black;
     background-size: cover;
