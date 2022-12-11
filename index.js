@@ -64,9 +64,11 @@ function getHero(){
     const heroLeadIn = getLeadIn(contentArray[0].content)
     heroHtml += `
     <article class="hero" id="hero" data-click="${contentArray[0].keyword}">
-        <p class="article-date" data-click="${contentArray[0].keyword}">${heroDate}</p>
-        <h1 data-click="${contentArray[0].keyword}">${contentArray[0].title}</h1>
-        <p class="article-lead-in" data-click="${contentArray[0].keyword}">${heroLeadIn}</p>
+        <div class="hero-wrapper>
+            <p class="article-date" data-click="${contentArray[0].keyword}">${heroDate}</p>
+            <h1 data-click="${contentArray[0].keyword}">${contentArray[0].title}</h1>
+            <p class="article-lead-in" data-click="${contentArray[0].keyword}">${heroLeadIn}</p>
+        </div>
     </article>
     `
     return heroHtml

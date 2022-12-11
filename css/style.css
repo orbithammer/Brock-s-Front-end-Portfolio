@@ -70,6 +70,8 @@ ul {
     column-gap: 3vw;
 }
 
+/* main */
+
 .content {
     padding-top: 2.4rem;
 }
@@ -83,8 +85,8 @@ ul {
     background-size: cover;
     color: #fff;
     text-shadow: 0 0 10px black, 0 0 2px black;
-    /* margin: 0 -1.25rem 2.125rem; */
-    padding: 5.4375rem 1.25rem 1.5625rem;
+    margin: 0.7rem -3rem 2.125rem;
+    padding: 5.4375rem 3rem 1.5625rem;
     cursor: pointer;
     font-weight: bold;
     background-color: lightgray;
@@ -142,6 +144,8 @@ nav li:active {
     color: #999;
 }
 
+/* articles */
+
 .clicked-article {
     margin-top: 3.1rem;
     padding: 2rem 1.25rem;
@@ -170,6 +174,8 @@ nav li:active {
     justify-content: center;
     font-weight: 700;
 }
+
+/* footer */
 
 footer {
     display: flex;
@@ -215,6 +221,8 @@ footer i {
     margin-bottom: 0.02083rem;
 }
 
+/* media queries */
+
 @media (min-width: 415px) {
     .content-feed,
     .recent-posts {
@@ -222,7 +230,11 @@ footer i {
         grid-template-columns: auto auto auto;
         grid-column-gap: 1.625rem;
     }
-    
+
+    .content-feed {
+        padding: .8rem 0 1.67rem;
+    }
+  
     .about-me-header-wrapper {
         display: flex;
         align-items: center;
@@ -244,9 +256,20 @@ footer i {
     }
 
     .clicked-article,
+    .recent-posts-wrapper,
+    .content,
+    .hero-wrapper
+     {
+        max-width: 1500px;
+    }
+
+    .content {
+        margin: 0 auto;
+    }
+
+    .clicked-article,
     .recent-posts-wrapper {
         padding: 1rem 3.125rem 0;
-        max-width: 1500px;
         margin: 3.1rem auto 0;
     }
 }
