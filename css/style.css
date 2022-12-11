@@ -132,6 +132,7 @@ ul {
     cursor: pointer;
     text-decoration: underline;
     outline: 0;
+    color: black;
 }
 
 .view-more-btn:active, 
