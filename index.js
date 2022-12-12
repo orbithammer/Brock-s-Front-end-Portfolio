@@ -3,8 +3,9 @@ import { contentArray } from "./data.js"
 const heroWrapper = document.getElementById("hero-wrapper")
 const contentFeed = document.getElementById("content-feed")
 const viewMoreBtnWrapper = document.getElementById("view-more-btn-wrapper")
-// const featured = document.getElementById("featured")
-let isArticleClicked = false
+const recentPostsRange = 2
+
+var clickedArticleKeyword = ``
 let feedRange = 3
 
 document.addEventListener("click", e => {
@@ -14,13 +15,20 @@ document.addEventListener("click", e => {
         viewMore()
     } else if(e.target.dataset.social){
         handleSocial(e.target.dataset.social)
+    } else {
+        console.log(e.target)
     }
 })
 
 function handleClick(articleKeyword) {
     // console.log(`articleKeyword`, articleKeyword)
-    window.location.href = `html/${articleKeyword}.html`
-    isArticleClicked = true
+    // globalVariables.clickedKeyword = articleKeyword
+    // isArticleClicked = true
+    console.log(`handleClick articleKeyword`,articleKeyword)
+    localStorage.setItem("clickedArticleKeyword", articleKeyword)
+    console.log(`set clickedArticleKeyword`, clickedArticleKeyword)
+    window.open(`html/${articleKeyword}.html`, "_blank")
+    // render(articleKeyword)
 }
 
 function viewMore() {
@@ -103,12 +111,49 @@ function getFeed(){
     return feedHtml
 }
 
-function render() {
-    heroWrapper.innerHTML = getHero()
-    contentFeed.innerHTML = getFeed()
-    if(isArticleClicked === false) {
+function getRecentPostsFeed() {
+    let recentPostsHtml = ``
+    contentArray.forEach((article,index) => {
+        if(index <= recentPostsRange) {
+            const articleDate = getDate(article.date)
+            let leadIn = ""
+            if (article.content.length > 200) {
+                leadIn = article.content.slice(0, 200).concat("...")
+            } else {
+                leadIn = article.content
+            }
+            recentPostsHtml += `
+                <article class="article" data-click="${article.keyword}">
+                    <img src="/images/${article.keyword}.png" class="article-img" data-click="${article.keyword}">
+                    <p class="article-date" data-click="${article.keyword}">${articleDate}</p>
+                    <h1 data-click="${article.keyword}">${article.title}</h1>
+                    <p class="article-lead-in" data-click="${article.keyword}">${leadIn}</p>
+                </article>
+                `
+        }
+    })
+    return recentPostsHtml
+}
+
+function findClickedArticle(articleKeyword) {
+    console.log(`function clickedArticleKeyword`,clickedArticleKeyword)
+}
+
+function render(articleKeyword) {
+    console.log(`render articleKeyword`,articleKeyword)
+    let path = window.location.pathname;
+    if(path === "/index.html") {
+        localStorage.clear()
+        heroWrapper.innerHTML = getHero()
+        contentFeed.innerHTML = getFeed()
         const hero = document.getElementById("hero")
         hero.style.backgroundImage = `url("images/${contentArray[0].keyword}.png")`
+    } else if(path != "/html/about.html") {
+        let clickedArticleObj = findClickedArticle(clickedArticleKeyword)
+        let clickedArticleDate = getDate()
+        let clickedArticleDateEl = document.getElementById("clicked-article-date")
+        let recentPosts = document.getElementById("recent-posts")
+        recentPosts.innerHTML = getRecentPostsFeed()
     }
 }
 

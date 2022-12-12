@@ -1,6 +1,8 @@
 {
   "name": "project",
-  "dependencies": {},
+  "dependencies": {
+    "utf-8-validate": "^5.0.10"
+  },
   "devDependencies": {
     "vite": "latest"
   },
@@ -9,5 +11,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.7"
   }
 }

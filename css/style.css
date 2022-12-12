@@ -171,6 +171,14 @@ nav li:active {
     margin-top: 0.9375rem;
 }
 
+.clicked-article-link {
+    display: flex;
+    justify-content: center;
+    font-family: inherit;
+    font-weight: bold;
+    margin: 1rem auto;
+    
+}
 .recent-posts-wrapper {
     padding: 0 1.25em 3.5em;
 }

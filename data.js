@@ -1,50 +1,41 @@
 export const contentArray = [
     {
+        keyword: "settsukyo",
         img: "images/settsukyo.png",
         date: "2022-12-03",
         title: "Blog Six",
         content: "Hero: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        html: "html/settsukyo.html",
-        keyword: "settsukyo"
+        html: "html/settsukyo.html"
     },
     {
+        keyword: "lizard",
         img: "images/lizard.png",
         date: "2022-12-02",
         title: "Blog Five",
         content: "Lorem ipsum dolor sit amet.",
-        html: "html/lizard.html",
-        keyword: "lizard"
+        html: "html/lizard.html"
     },
     {
-        img: "images/htmlBusinessCard.png",
-        date: "2022-12-01",
-        title: "Blog Four",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        html: "html/htmlBusinessCard.html",
-        keyword: "htmlBusinessCard"
-    },
-    {
+        keyword: "settsukyo",
         img: "images/settsukyo.png",
         date: "2022-12-03",
         title: "Blog Three",
         content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        html: "html/settsukyo.html",
-        keyword: "settsukyo"
+        html: "html/settsukyo.html"
     },
     {
+        keyword: "lizard",
         img: "images/lizard.png",
         date: "2022-12-02",
         title: "Blog Two",
         content: "Lorem ipsum dolor sit amet.",
-        html: "html/lizard.html",
-        keyword: "lizard"
+        html: "html/lizard.html"
     },
     {
-        img: "images/htmlBusinessCard.png",
-        date: "2022-12-01",
-        title: "Blog One",
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        html: "html/htmlBusinessCard.html",
-        keyword: "htmlBusinessCard"
+        keyword: "htmlBusinessCard",
+        date: "2022-08-23",
+        title: "HTML Business Card",
+        content: "A quick exercise to show a basic understanding of HTML. Written for the Scrimba.com course.",
+        link: "https://meek-muffin-63526b.netlify.app/"
     }
 ]

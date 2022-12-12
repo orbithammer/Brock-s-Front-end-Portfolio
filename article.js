@@ -1,7 +1,10 @@
 import { contentArray } from "./data.js"
+// import { globalVariables } from "/index.js"
 
 const recentPosts = document.getElementById("recent-posts")
 const recentPostsRange = 2
+console.log(`article`)
+// console.log(`clickedKeyword`, globalVariables)
 
 document.addEventListener("click", e => {
     if(e.target.dataset.click) {
