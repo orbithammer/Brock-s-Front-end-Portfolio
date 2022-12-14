@@ -135,8 +135,29 @@ function getRecentPostsFeed() {
     return recentPostsHtml
 }
 
-function findClickedArticle(articleKeyword) {
-    console.log(`function clickedArticleKeyword`,clickedArticleKeyword)
+function findClickedArticle() {
+    return contentArray.filter(articleObj => {
+        return articleObj.keyword === localStorage.getItem("clickedArticleKeyword")
+    })
+    console.log(`temp`, temp)
+}
+
+function getArticleHtml(clickedArticleObj) {
+    console.log(`clickedArticleObj`, clickedArticleObj)
+    console.log(typeof clickedArticleObj)
+    const {content, date, keyword, link, title} = clickedArticleObj[0]
+    console.log(date, title, content, link)
+    // console.log(`unformatted date`, clickedArticleObj[0].date)
+    // const articleDate = getDate(clickedArticleObj.date)
+    let articleHtml = ``
+    articleHtml = `
+    <p class="clicked-article-date" id="clicked-article-date">${getDate(date)}</p>
+    <h1>${title}</h1>
+    <img src="/images/${keyword}.png" class="clicked-article-img">
+    <p class="clicked-article-content">${content}</p>
+    <a href="${link}" target="_blank" class="clicked-article-link">Check out my ${title} here!</a>
+    `
+    return articleHtml
 }
 
 function render(articleKeyword) {
@@ -149,8 +170,9 @@ function render(articleKeyword) {
         const hero = document.getElementById("hero")
         hero.style.backgroundImage = `url("images/${contentArray[0].keyword}.png")`
     } else if(path != "/html/about.html") {
-        let clickedArticleObj = findClickedArticle(clickedArticleKeyword)
-        let clickedArticleDate = getDate()
+        let clickedArticleObj = findClickedArticle()
+        let clickedArticle = document.getElementById("clicked-article")
+        clickedArticle.innerHTML = getArticleHtml(clickedArticleObj)
         let clickedArticleDateEl = document.getElementById("clicked-article-date")
         let recentPosts = document.getElementById("recent-posts")
         recentPosts.innerHTML = getRecentPostsFeed()
