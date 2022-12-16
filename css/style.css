@@ -94,12 +94,11 @@ ul {
     color: #fff;
     text-shadow: 0 0 10px black, 0 0 2px black;
     margin: 0.7rem -3rem 2.125rem;
-    padding: 30rem 3rem 1.5625rem;
+    padding: 15rem 3rem 1.5625rem;
     cursor: pointer;
     font-weight: bold;
     background-color: lightgray;
     background-blend-mode: multiply;
-    /* width: 100%; */
 }
 
 .article {
@@ -295,6 +294,10 @@ footer i {
     .hero-wrapper
      {
         max-width: 1500px;
+    }
+
+    .hero {
+        padding: 30rem 3rem 1.5625rem;
     }
 
     .content {
