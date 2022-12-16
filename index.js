@@ -110,12 +110,15 @@ function getFeed(){
 }
 
 function getRecentPostsFeed(clickedArticleObj) {
+    console.log(`clickedArticleObj`, clickedArticleObj)
     const { keyword: clickedKeyword } = clickedArticleObj[0]
     let recentPostsHtml = ``
-    const filteredContentArray = contentArray.filter(articleObj => articleObj.keyword != clickedKeyword)
+    let path = window.location.pathname
+    console.log(`path`, path)
+    let filteredContentArray = contentArray.filter(articleObj => articleObj.keyword != clickedKeyword)
     filteredContentArray.forEach((article,index) => {
         const { content, date, keyword, link, title } = article
-        if(index <= recentPostsRange && clickedKeyword != keyword) { //TODO && article.keyword != clicked article keyword
+        if(index <= recentPostsRange && clickedKeyword != keyword) { 
             console.log(`recent posts feed var`,content, date, keyword, link, title)
             const articleDate = getDate(article.date)
             let leadIn = ""
@@ -179,6 +182,9 @@ function render(articleKeyword) {
         let clickedArticleDateEl = document.getElementById("clicked-article-date")
         let recentPosts = document.getElementById("recent-posts")
         recentPosts.innerHTML = getRecentPostsFeed(clickedArticleObj)
+    } else if(path === "/html/about.html") {
+        let recentPosts = document.getElementById("recent-posts")
+        recentPosts.innerHTML = getRecentPostsFeed([{keyword: "noname"}])
     }
 }
 

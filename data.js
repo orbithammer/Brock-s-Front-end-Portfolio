@@ -3,7 +3,7 @@ export const contentArray = [
         keyword: "twimba",
         date: "2022-11-28",
         title: "Twitter Clone",
-        alt: "A screen shot of Twitter like post of Elon Musk saying, 'I need volunteers for a one-way mission to Mars. No experience necessary.' The reply is '#RIPtwitter'.",
+        alt: "A screen shot of Twitter-like post of Elon Musk saying, 'I need volunteers for a one-way mission to Mars. No experience necessary.' The reply is '#RIPtwitter'.",
         content: "Written in JavaScript for the Scrimba.com course. Just in time for Twitter's imminent demise (#RIPtwitter). It incorporates all of the stretch goals: saves in localStorage, allows for replies, and allows users to delete tweets.",
         link: "https://guileless-strudel-5884e9.netlify.app/"
     },
@@ -19,7 +19,7 @@ export const contentArray = [
         keyword: "oldagram",
         date: "2022-10-29",
         title: "Instagram Clone",
-        alt: "A screen shot of a Frida Kahlo self portrait in an Instragram like post.",
+        alt: "A screen shot of a Frida Kahlo self portrait in an Instragram-like post.",
         content: "Written in JavaScript for the Scrimba.com course. An Insta clone with some stretch goals: used JavaScript to render all posts, used semantic HTML, added a slight shrinking effect when the icons are being clicked, and made the Like icon function with conditional formatting and timed effects.",
         link: "https://transcendent-raindrop-4ed9ca.netlify.app/"
     },
