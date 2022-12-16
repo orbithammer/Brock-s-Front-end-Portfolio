@@ -66,8 +66,7 @@ function getLeadIn(content) {
     return leadIn
 }
 
-function getHero(){ //TODO object destructure
-    // let heroHtml = ``
+function getHero(){
     const { date, title, keyword, content } = contentArray[0]
     const heroDate = getDate(date)
     const heroLeadIn = getLeadIn(content)
@@ -78,7 +77,6 @@ function getHero(){ //TODO object destructure
             <p class="article-lead-in" data-click="${keyword}">${heroLeadIn}</p>
     </article>
     `
-    // return heroHtml
 }
 
 function getFeed(){
@@ -167,7 +165,7 @@ function getArticleHtml(clickedArticleObj) {
 function render(articleKeyword) {
     console.log(`render articleKeyword`,articleKeyword)
     let path = window.location.pathname;
-    // console.log(`path`, path)
+    console.log(`path`, path)
     if(path === "/index.html" || path ==="/") {
         localStorage.clear()
         heroWrapper.innerHTML = getHero()
