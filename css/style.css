@@ -178,13 +178,15 @@ nav li:active {
 .clicked-article-link {
     display: flex;
     justify-content: center;
+    /* align-items: center; */
     font-family: inherit;
     font-weight: bold;
     margin: 1rem auto;
+    text-align: center;
     text-decoration: none;
     background-color: rgb(74, 105, 219);
     padding: 1rem 3rem;
-    max-width: calc(40%);
+    max-width: calc(80%);
     border-radius: 5px;
     color: white;
 }
@@ -303,6 +305,10 @@ footer i {
     .recent-posts-wrapper {
         padding: 1rem 3.125rem 0;
         margin: 3.1rem auto 0;
+    }
+
+    .clicked-article-link {
+        max-width: calc(40%);
     }
 }
 
