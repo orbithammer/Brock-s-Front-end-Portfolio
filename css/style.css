@@ -9,13 +9,13 @@ body {
     font-family: Helvetica, Arial, sans-serif;
     background-color: whitesmoke;
     color: #090909;
-    font-size: 32px;
+    font-size: 16px;
 }
 
 /* typeography */
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
 }
@@ -42,6 +42,7 @@ header {
     width: 100%;
     box-shadow: 0 0 10px #999;
     background-color: whitesmoke;
+    font-size: 1rem;
 }
 
 .title-wrapper {
@@ -88,6 +89,8 @@ ul {
 .hero {
     background-color: black;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     color: #fff;
     text-shadow: 0 0 10px black, 0 0 2px black;
     margin: 0.7rem -3rem 2.125rem;
@@ -96,6 +99,7 @@ ul {
     font-weight: bold;
     background-color: lightgray;
     background-blend-mode: multiply;
+    /* width: 100%; */
 }
 
 .article {
