@@ -27,7 +27,7 @@ function handleClick(articleKeyword) {
     console.log(`handleClick articleKeyword`,articleKeyword)
     localStorage.setItem("clickedArticleKeyword", articleKeyword)
     console.log(`set clickedArticleKeyword`, clickedArticleKeyword)
-    window.open(`html/${articleKeyword}.html`, "_blank")
+    window.open(`html/${articleKeyword}.html`, "_self")
     // render(articleKeyword)
 }
 
@@ -66,42 +66,42 @@ function getLeadIn(content) {
     return leadIn
 }
 
-function getHero(){
-    let heroHtml = ``
-    const heroDate = getDate(contentArray[0].date)
-    const heroLeadIn = getLeadIn(contentArray[0].content)
-    heroHtml += `
-    <article class="hero" id="hero" data-click="${contentArray[0].keyword}">
-
-            <p class="article-date" data-click="${contentArray[0].keyword}">${heroDate}</p>
-            <h1 data-click="${contentArray[0].keyword}">${contentArray[0].title}</h1>
-            <p class="article-lead-in" data-click="${contentArray[0].keyword}">${heroLeadIn}</p>
-
+function getHero(){ //TODO object destructure
+    // let heroHtml = ``
+    const { date, title, keyword, content } = contentArray[0]
+    const heroDate = getDate(date)
+    const heroLeadIn = getLeadIn(content)
+   return `
+    <article class="hero" id="hero" data-click="${keyword}">
+            <p class="article-date" data-click="${keyword}">${heroDate}</p>
+            <h1 data-click="${keyword}">${title}</h1>
+            <p class="article-lead-in" data-click="${keyword}">${heroLeadIn}</p>
     </article>
     `
-    return heroHtml
+    // return heroHtml
 }
 
 function getFeed(){
     let feedHtml = ``
     contentArray.forEach((article, index) => {
-        // console.log(index, item)
-        let articleDate = getDate(article.date)
-        let articleLeadIn = getLeadIn(article.content)
+        const {content, date, keyword, title, alt} = article
+        // console.log(`article vars`, content, date, keyword, link, title)
+        let articleDate = getDate(date)
+        let articleLeadIn = getLeadIn(content)
         if(index <= feedRange) {
             if(index != 0) {
                 feedHtml += `
-                <article class="article" data-click="${article.keyword}">
-                    <img src="images/${article.keyword}.png" class="article-img" data-click="${article.keyword}">
-                    <p class="article-date" data-click="${article.keyword}">${articleDate}</p>
-                    <h1 data-click="${article.keyword}">${article.title}</h1>
-                    <p class="article-lead-in" data-click="${article.keyword}">${articleLeadIn}</p>
+                <article class="article" data-click="${keyword}">
+                    <img src="images/${keyword}.png" class="article-img" data-click="${keyword}" alt=${alt}>
+                    <p class="article-date" data-click="${keyword}">${articleDate}</p>
+                    <h1 data-click="${keyword}">${title}</h1>
+                    <p class="article-lead-in" data-click="${keyword}">${articleLeadIn}</p>
                 </article>
                 `
             } 
         }
     })
-    if(feedRange < (contentArray.length)) {
+    if(feedRange < (contentArray.length - 1)) {
         viewMoreBtnWrapper.innerHTML = `
         <button class="view-more-btn" data-viewMore="viewMore">View More</button>
         `
@@ -111,23 +111,27 @@ function getFeed(){
     return feedHtml
 }
 
-function getRecentPostsFeed() {
+function getRecentPostsFeed(clickedArticleObj) {
+    const { keyword: clickedKeyword } = clickedArticleObj[0]
     let recentPostsHtml = ``
-    contentArray.forEach((article,index) => {
-        if(index <= recentPostsRange) {
+    const filteredContentArray = contentArray.filter(articleObj => articleObj.keyword != clickedKeyword)
+    filteredContentArray.forEach((article,index) => {
+        const { content, date, keyword, link, title } = article
+        if(index <= recentPostsRange && clickedKeyword != keyword) { //TODO && article.keyword != clicked article keyword
+            console.log(`recent posts feed var`,content, date, keyword, link, title)
             const articleDate = getDate(article.date)
             let leadIn = ""
-            if (article.content.length > 200) {
-                leadIn = article.content.slice(0, 200).concat("...")
+            if (content.length > 200) {
+                leadIn = content.slice(0, 200).concat("...")
             } else {
-                leadIn = article.content
+                leadIn = content
             }
             recentPostsHtml += `
-                <article class="article" data-click="${article.keyword}">
-                    <img src="/images/${article.keyword}.png" class="article-img" data-click="${article.keyword}">
-                    <p class="article-date" data-click="${article.keyword}">${articleDate}</p>
-                    <h1 data-click="${article.keyword}">${article.title}</h1>
-                    <p class="article-lead-in" data-click="${article.keyword}">${leadIn}</p>
+                <article class="article" data-click="${keyword}">
+                    <img src="/images/${keyword}.png" class="article-img" data-click="${keyword}">
+                    <p class="article-date" data-click="${keyword}">${articleDate}</p>
+                    <h1 data-click="${keyword}">${title}</h1>
+                    <p class="article-lead-in" data-click="${keyword}">${leadIn}</p>
                 </article>
                 `
         }
@@ -143,17 +147,17 @@ function findClickedArticle() {
 }
 
 function getArticleHtml(clickedArticleObj) {
-    console.log(`clickedArticleObj`, clickedArticleObj)
-    console.log(typeof clickedArticleObj)
-    const {content, date, keyword, link, title} = clickedArticleObj[0]
-    console.log(date, title, content, link)
+    // console.log(`clickedArticleObj`, clickedArticleObj)
+    // console.log(typeof clickedArticleObj)
+    const {content, date, keyword, link, title, alt} = clickedArticleObj[0]
+    // console.log(date, title, content, link)
     // console.log(`unformatted date`, clickedArticleObj[0].date)
     // const articleDate = getDate(clickedArticleObj.date)
     let articleHtml = ``
     articleHtml = `
     <p class="clicked-article-date" id="clicked-article-date">${getDate(date)}</p>
     <h1>${title}</h1>
-    <img src="/images/${keyword}.png" class="clicked-article-img">
+    <img src="/images/${keyword}.png" class="clicked-article-img" alt="${alt}">
     <p class="clicked-article-content">${content}</p>
     <a href="${link}" target="_blank" class="clicked-article-link">Check out my ${title} here!</a>
     `
@@ -163,7 +167,8 @@ function getArticleHtml(clickedArticleObj) {
 function render(articleKeyword) {
     console.log(`render articleKeyword`,articleKeyword)
     let path = window.location.pathname;
-    if(path === "/index.html") {
+    // console.log(`path`, path)
+    if(path === "/index.html" || path ==="/") {
         localStorage.clear()
         heroWrapper.innerHTML = getHero()
         contentFeed.innerHTML = getFeed()
@@ -175,7 +180,7 @@ function render(articleKeyword) {
         clickedArticle.innerHTML = getArticleHtml(clickedArticleObj)
         let clickedArticleDateEl = document.getElementById("clicked-article-date")
         let recentPosts = document.getElementById("recent-posts")
-        recentPosts.innerHTML = getRecentPostsFeed()
+        recentPosts.innerHTML = getRecentPostsFeed(clickedArticleObj)
     }
 }
 

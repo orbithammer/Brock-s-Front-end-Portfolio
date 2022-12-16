@@ -91,7 +91,7 @@ ul {
     color: #fff;
     text-shadow: 0 0 10px black, 0 0 2px black;
     margin: 0.7rem -3rem 2.125rem;
-    padding: 5.4375rem 3rem 1.5625rem;
+    padding: 30rem 3rem 1.5625rem;
     cursor: pointer;
     font-weight: bold;
     background-color: lightgray;
@@ -177,8 +177,18 @@ nav li:active {
     font-family: inherit;
     font-weight: bold;
     margin: 1rem auto;
-    
+    text-decoration: none;
+    background-color: rgb(74, 105, 219);
+    padding: 1rem 3rem;
+    max-width: calc(40%);
+    border-radius: 5px;
+    color: white;
 }
+
+.clicked-article-link:active {
+    transform: scale(.9);
+}
+
 .recent-posts-wrapper {
     padding: 0 1.25em 3.5em;
 }
