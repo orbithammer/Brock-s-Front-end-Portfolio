@@ -165,7 +165,7 @@ function getArticleHtml(clickedArticleObj) {
 function render(articleKeyword) {
     console.log(`render articleKeyword`,articleKeyword)
     let path = window.location.pathname;
-    console.log(`path`, path)
+    // console.log(`path`, path)
     if(path === "/index.html" || path ==="/") {
         localStorage.clear()
         heroWrapper.innerHTML = getHero()
