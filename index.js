@@ -16,7 +16,7 @@ document.addEventListener("click", e => {
     } else if(e.target.dataset.social){
         handleSocial(e.target.dataset.social)
     } else {
-        console.log(e.target)
+        // console.log(e.target)
     }
 })
 
@@ -24,9 +24,9 @@ function handleClick(articleKeyword) {
     // console.log(`articleKeyword`, articleKeyword)
     // globalVariables.clickedKeyword = articleKeyword
     // isArticleClicked = true
-    console.log(`handleClick articleKeyword`,articleKeyword)
+    // console.log(`handleClick articleKeyword`,articleKeyword)
     localStorage.setItem("clickedArticleKeyword", articleKeyword)
-    console.log(`set clickedArticleKeyword`, clickedArticleKeyword)
+    // console.log(`set clickedArticleKeyword`, clickedArticleKeyword)
     window.open(`html/${articleKeyword}.html`, "_self")
     // render(articleKeyword)
 }
@@ -114,12 +114,12 @@ function getRecentPostsFeed(clickedArticleObj) {
     const { keyword: clickedKeyword } = clickedArticleObj[0]
     let recentPostsHtml = ``
     let path = window.location.pathname
-    console.log(`path`, path)
+    // console.log(`path`, path)
     let filteredContentArray = contentArray.filter(articleObj => articleObj.keyword != clickedKeyword)
     filteredContentArray.forEach((article,index) => {
         const { content, date, keyword, link, title } = article
         if(index <= recentPostsRange && clickedKeyword != keyword) { 
-            console.log(`recent posts feed var`,content, date, keyword, link, title)
+            // console.log(`recent posts feed var`,content, date, keyword, link, title)
             const articleDate = getDate(article.date)
             let leadIn = ""
             if (content.length > 200) {
@@ -144,7 +144,7 @@ function findClickedArticle() {
     return contentArray.filter(articleObj => {
         return articleObj.keyword === localStorage.getItem("clickedArticleKeyword")
     })
-    console.log(`temp`, temp)
+    // console.log(`temp`, temp)
 }
 
 function getArticleHtml(clickedArticleObj) {
@@ -166,7 +166,7 @@ function getArticleHtml(clickedArticleObj) {
 }
 
 function render(articleKeyword) {
-    console.log(`render articleKeyword`,articleKeyword)
+    // console.log(`render articleKeyword`,articleKeyword)
     let path = window.location.pathname;
     // console.log(`path`, path)
     if(path === "/index.html" || path ==="/") {
